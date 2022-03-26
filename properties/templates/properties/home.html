@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h3>분자명을 정확히 입력하시오</h3>
+  <form action="{% url 'properties:search' %}" method="GET">
+    <label for="search-tab"></label>
+    <input type="text" id="search-tab" name="compound-name">
+    <button type="submit">Search</button>
+  </form>
+{% endblock content %}

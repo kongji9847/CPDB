@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h3>Name: {{ compound.Name }}</h3>
+  <p>Formula: {{ compound.Formula }}</p>
+  <p>Molecular weight: {{ compound.Molwt }}(g/mol)</p>
+  <p>Normal freezing point: {{ compound.Tfp }}(K)</p>
+  <p>Normal boiling point: {{ compound.Tb }}(K)</p>
+  <p>Critical temperature: {{ compound.Tc }}(K)</p>
+  <p>Isobaric heat capacity of the ideal gas (J/mol.K)</p>
+  <p>Cp=A + B*T + C*T^2 + D*T^3</p>
+  <img src="{% get_static_prefix %}properties/Cpfigures/{{compound.Name}}.png" alt="{{ compound.Name }}">
+  <img src="{% get_static_prefix %}properties/Pvapfigures/{{compound.Name}}.png" alt="{{ compound.Name }}">
+
+{% endblock content %}
