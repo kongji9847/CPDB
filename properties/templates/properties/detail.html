@@ -9,8 +9,11 @@
   <p>Normal boiling point: {{ compound.Tb }}(K)</p>
   <p>Critical temperature: {{ compound.Tc }}(K)</p>
   <p>Isobaric heat capacity of the ideal gas (J/mol.K)</p>
-  <p>Cp=A + B*T + C*T^2 + D*T^3</p>
-  <img src="{% get_static_prefix %}properties/Cpfigures/{{compound.Name}}.png" alt="{{ compound.Name }}">
-  <img src="{% get_static_prefix %}properties/Pvapfigures/{{compound.Name}}.png" alt="{{ compound.Name }}">
+  {% if compound.Tmin %}
+    <p>Cp=A + B*T + C*T^2 + D*T^3</p>
+    <img src="{% get_static_prefix %}properties/Cpfigures/{{compound.Name}}.png" alt="{{ compound.Name }}">
+    <img src="{% get_static_prefix %}properties/Pvapfigures/{{compound.Name}}.png" alt="{{ compound.Name }}">
+  {% endif %}
+
 
 {% endblock content %}

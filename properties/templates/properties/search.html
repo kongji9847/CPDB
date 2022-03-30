@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% for compound in compounds %}
+    <a href="{% url 'properties:detail' compound.pk %}">
+      <p>Formula: {{ compound.Formula }}</p>
+      <p>Name: {{ compound.Name }}</p>
+    </a>
+    <hr>
+  {% endfor %}
+{% endblock content %}

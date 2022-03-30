@@ -1,7 +1,6 @@
 from django.shortcuts import redirect, render
 from .models import Property
-import numpy as np
-import matplotlib.pyplot as plt
+from django.db.models import Q
 
 # Create your views here.
 def home(request):
@@ -9,9 +8,14 @@ def home(request):
 
 def search(request):
     compound_name = request.GET.get('compound-name')
-    compound = Property.objects.get(Name=compound_name)
-    print(compound)
-    return redirect('properties:detail', compound.pk)
+    compounds = Property.objects.filter(Q(Name__contains=compound_name) | Q(Formula__contains=compound_name))
+    print(compounds)
+    context = {
+        'compounds' : compounds
+    }
+    return render(request, 'properties/search.html', context)
+    # print(compound)
+    # return redirect('properties:detail', compound.pk)
 
 def detail(request, pk):
     compound = Property.objects.get(pk=pk)
