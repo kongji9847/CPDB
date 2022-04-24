@@ -440,3 +440,4 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,python,django,visualstudiocode,pycharm,venv
 
 secrets.json
+db_uploader/
