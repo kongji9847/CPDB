@@ -1,6 +1,6 @@
 from django.db import models
-from django.forms import ImageField
-from django_matplotlib import MatplotlibFigureField
+# from django.forms import ImageField
+# from django_matplotlib import MatplotlibFigureField
 
 # Create your models here.
 class Property(models.Model):
